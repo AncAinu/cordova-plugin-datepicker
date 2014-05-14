@@ -109,12 +109,8 @@
 	
 	// show UIActionSheet
 	[self.webView.superview addSubview:containerView];
-	
-	NSLog(@"%f", self.webView.frame.size.height);
-	NSLog(@"%f", containerView.frame.size.height);
-	NSLog(@"%f", containerView.bounds.size.height);
-	NSLog(@"%@", self.webView);
-	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, self.webView.frame.size.height - 485, 320, 485)];
+
+	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, containerView.frame.size.height - 216 - 30, 320, 485)];
 	actionSheet.backgroundColor = [UIColor whiteColor];
 	
 	[containerView addSubview:actionSheet];
