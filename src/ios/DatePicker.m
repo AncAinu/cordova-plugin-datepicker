@@ -159,7 +159,8 @@
 }
 
 - (UIDatePicker *)createDatePicker:(NSMutableDictionary *)options frame:(CGRect)frame { 
-  UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:frame];      
+  UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:frame];
+  datePicker.backgroundColor = [UIColor whiteColor];
   return datePicker;
 }
 
