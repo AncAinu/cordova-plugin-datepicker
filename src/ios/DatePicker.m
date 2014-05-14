@@ -104,14 +104,14 @@
 
 
 - (UIView *)createActionSheet:(NSMutableDictionary *)options {
-	UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.webView.superview.frame.size.height)];
-	containerView.backgroundColor = [UIColor clearColor];
+	UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.webView.frame.size.height)];
+	containerView.backgroundColor = [UIColor greenColor];
 	
 	// show UIActionSheet
 	[self.webView.superview addSubview:containerView];
 	
-	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, containerView.frame.size.height - 485, 320, 485)];
-	actionSheet.backgroundColor = [UIColor whiteColor];
+	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, 80, 320, 485)];
+	actionSheet.backgroundColor = [UIColor redColor];
 	
 	[containerView addSubview:actionSheet];
 	
