@@ -104,8 +104,12 @@
 
 
 - (UIView *)createActionSheet:(NSMutableDictionary *)options {
+	UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.webView.superview.frame.size.height)];
+	
 	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, self.webView.superview.frame.size.height - 485, 320, 485)];
 	actionSheet.backgroundColor = [UIColor whiteColor];
+	
+	[containerView addSubview:actionSheet];
 	
 	// date picker
 	CGRect frame = CGRectMake(0, 40, 0, 0);
@@ -121,9 +125,9 @@
 	UISegmentedControl *doneButton = [self createDoneButton:options];
 	[actionSheet addSubview:doneButton];
 	// show UIActionSheet
-	[self.webView.superview addSubview:actionSheet];
+	[self.webView.superview addSubview:containerView];
 	
-	return actionSheet;
+	return containerView;
 }
 
 - (UIPopoverController *)createPopover:(NSMutableDictionary *)options {
