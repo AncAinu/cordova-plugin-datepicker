@@ -61,6 +61,7 @@
     } else {
         [self.datePickerPopover dismissPopoverAnimated:YES];
     }
+    self.isVisible = FALSE;
 }
 
 - (void)doneAction:(id)sender {
