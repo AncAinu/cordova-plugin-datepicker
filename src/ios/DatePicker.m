@@ -105,8 +105,12 @@
 
 - (UIView *)createActionSheet:(NSMutableDictionary *)options {
 	UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.webView.superview.frame.size.height)];
+	containerView.backgroundColor = [UIColor clearColor];
 	
-	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, self.webView.superview.frame.size.height - 485, 320, 485)];
+	// show UIActionSheet
+	[self.webView.superview addSubview:containerView];
+	
+	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, containerView.frame.size.height - 485, 320, 485)];
 	actionSheet.backgroundColor = [UIColor whiteColor];
 	
 	[containerView addSubview:actionSheet];
@@ -124,8 +128,6 @@
 	// done button
 	UISegmentedControl *doneButton = [self createDoneButton:options];
 	[actionSheet addSubview:doneButton];
-	// show UIActionSheet
-	[self.webView.superview addSubview:containerView];
 	
 	return containerView;
 }
