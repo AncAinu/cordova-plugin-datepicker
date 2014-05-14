@@ -128,7 +128,7 @@
 
   UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 485)];
   backgroundView.backgroundColor = [UIColor whiteColor];
-  [actionSheet addSubview:backgroundView];
+  [actionSheet insertSubview:backgroundView atIndex:0];
 
   return actionSheet;
 }
