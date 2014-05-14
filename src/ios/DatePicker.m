@@ -36,10 +36,8 @@
 }
 
 - (BOOL)showForPhone:(NSMutableDictionary *)options {
-  if(!self.isVisible){
-    self.datePickerSheet = [self createActionSheet:options];
-    self.isVisible = TRUE;
-  }
+  self.datePickerSheet = [self createActionSheet:options];
+	self.isVisible = TRUE;
   return true;
 }
 
@@ -105,7 +103,7 @@
 
 - (UIView *)createActionSheet:(NSMutableDictionary *)options {
 	UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.webView.frame.size.height)];
-	containerView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.1];
+	containerView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
 	
 	// show UIActionSheet
 	[self.webView.superview addSubview:containerView];
