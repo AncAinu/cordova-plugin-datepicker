@@ -102,30 +102,28 @@
 
 #pragma mark - Factory methods
 
+
 - (UIView *)createActionSheet:(NSMutableDictionary *)options {
 	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, self.webView.superview.frame.size.height - 485, 320, 485)];
+	actionSheet.backgroundColor = [UIColor whiteColor];
 	
-  // date picker
-  CGRect frame = CGRectMake(0, 40, 0, 0);
-  if(!self.datePicker){
-    self.datePicker = [self createDatePicker: options frame:frame];
-  } 
-  [self updateDatePicker:options];
-  [actionSheet addSubview: self.datePicker];
-  // cancel button
-  UISegmentedControl *cancelButton = [self createCancelButton:options];
-  [actionSheet addSubview:cancelButton];
-  // done button
-  UISegmentedControl *doneButton = [self createDoneButton:options];    
-  [actionSheet addSubview:doneButton];
-  // show UIActionSheet
-  [self.webView.superview addSubview:actionSheet];
-
-  UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 485)];
-  backgroundView.backgroundColor = [UIColor whiteColor];
-  [actionSheet insertSubview:backgroundView atIndex:0];
-
-  return actionSheet;
+	// date picker
+	CGRect frame = CGRectMake(0, 40, 0, 0);
+	if(!self.datePicker){
+		self.datePicker = [self createDatePicker: options frame:frame];
+	}
+	[self updateDatePicker:options];
+	[actionSheet addSubview: self.datePicker];
+	// cancel button
+	UISegmentedControl *cancelButton = [self createCancelButton:options];
+	[actionSheet addSubview:cancelButton];
+	// done button
+	UISegmentedControl *doneButton = [self createDoneButton:options];
+	[actionSheet addSubview:doneButton];
+	// show UIActionSheet
+	[self.webView.superview addSubview:actionSheet];
+	
+	return actionSheet;
 }
 
 - (UIPopoverController *)createPopover:(NSMutableDictionary *)options {
