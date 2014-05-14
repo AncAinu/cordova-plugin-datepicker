@@ -16,7 +16,7 @@
 @interface DatePicker ()
 
 @property (nonatomic) BOOL isVisible;
-@property (nonatomic) UIActionSheet* datePickerSheet;
+@property (nonatomic) UIView* datePickerSheet;
 @property (nonatomic) UIDatePicker* datePicker;
 @property (nonatomic) UIPopoverController *datePickerPopover;
 
@@ -53,7 +53,7 @@
 
 - (void)hide {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [self.datePickerSheet dismissWithClickedButtonIndex:0 animated:YES];
+        [self.datePickerSheet removeFromSuperview];
     } else {
         [self.datePickerPopover dismissPopoverAnimated:YES];
     }
@@ -102,13 +102,9 @@
 
 #pragma mark - Factory methods
 
-- (UIActionSheet *)createActionSheet:(NSMutableDictionary *)options {
-  UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                        delegate:self cancelButtonTitle:nil
-                                                        destructiveButtonTitle:nil 
-                                                        otherButtonTitles:nil];
-
-  [actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+- (UIView *)createActionSheet:(NSMutableDictionary *)options {
+	UIView *actionSheet = [[UIView alloc] initWithFrame:CGRectMake(0, self.webView.superview.frame.size.height - 485, 320, 485)];
+	
   // date picker
   CGRect frame = CGRectMake(0, 40, 0, 0);
   if(!self.datePicker){
@@ -123,8 +119,7 @@
   UISegmentedControl *doneButton = [self createDoneButton:options];    
   [actionSheet addSubview:doneButton];
   // show UIActionSheet
-  [actionSheet showInView:self.webView.superview];
-  [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+  [self.webView.superview addSubview:actionSheet];
 
   UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 485)];
   backgroundView.backgroundColor = [UIColor whiteColor];
@@ -164,7 +159,6 @@
 
 - (UIDatePicker *)createDatePicker:(NSMutableDictionary *)options frame:(CGRect)frame { 
   UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:frame];
-  datePicker.backgroundColor = [UIColor whiteColor];
   return datePicker;
 }
 
