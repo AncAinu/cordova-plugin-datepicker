@@ -126,6 +126,10 @@
   [actionSheet showInView:self.webView.superview];
   [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
 
+  UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 485)];
+  backgroundView.backgroundColor = [UIColor whiteColor];
+  [actionSheet addSubview:backgroundView];
+
   return actionSheet;
 }
 
