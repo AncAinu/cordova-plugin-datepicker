@@ -108,7 +108,7 @@
                                                         destructiveButtonTitle:nil 
                                                         otherButtonTitles:nil];
 
-  [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+  [actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
   // date picker
   CGRect frame = CGRectMake(0, 40, 0, 0);
   if(!self.datePicker){
