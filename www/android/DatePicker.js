@@ -40,7 +40,10 @@ DatePicker.prototype.show = function(options, cb) {
   //this._callback = cb;
 
   var callback = function(message) {
+   if( message != "cancel" && message != "clear" )
     cb(new Date(message));
+   else
+    cb(message);
   }
   
   cordova.exec(callback, 
