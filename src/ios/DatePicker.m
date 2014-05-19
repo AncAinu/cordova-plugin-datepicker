@@ -36,7 +36,7 @@
 }
 
 - (BOOL)showForPhone:(NSMutableDictionary *)options {
-	if (!self.datePickerSheet) {
+	if (!self.datePickerSheet || [options objectForKey:@"date"]) {
 		self.datePickerSheet = [self createActionSheet:options];
 	}
 	if(!self.isVisible){
